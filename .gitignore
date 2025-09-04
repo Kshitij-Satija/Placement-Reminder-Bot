@@ -1,0 +1,34 @@
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Environment variables
+*.env
+
+# Logs
+*.log
+
+# Database files (if any local)
+*.db
+
+# VSCode or other editor settings
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+
+# Ignore secrets or credentials file
+secrets.json
