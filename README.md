@@ -42,7 +42,7 @@ A Telegram bot for sending scheduled reminders, managing admins, broadcasting me
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/placement-reminder-bot.git
+git clone https://github.com/Kshitij-Satija/placement-reminder-bot.git
 cd placement-reminder-bot
 ```
 
