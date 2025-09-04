@@ -9,10 +9,10 @@ dnspython==2.3.0
 apscheduler==3.10.1
 
 # Async HTTP requests (for pinging Render URL)
-aiohttp==3.8.5
+aiohttp==4.1.1
 
 # Timezone support
 tzdata==2025.1
 
-# Optional: if you use environment variable loading locally
+# Optional for local development
 python-dotenv==1.0.0
