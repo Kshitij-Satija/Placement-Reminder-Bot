@@ -12,18 +12,24 @@ from telegram.ext import (
     ApplicationBuilder, CommandHandler, ContextTypes
 )
 from zoneinfo import ZoneInfo  # Python 3.9+
+from dotenv import load_dotenv
+# Load .env file
+load_dotenv()  # This will load the variables from .env into os.environ
 
-# --- CONFIG ---
-BOT_TOKEN = os.environ.get("BOT_TOKEN")  # Telegram Bot Token
-CHANNEL_ID = os.environ.get("CHANNEL_ID")  # Channel username or ID
-SUPERADMIN_ID = int(os.environ.get("SUPERADMIN_ID", 0))  # Superadmin Telegram ID
-MONGO_URI = os.environ.get("MONGO_URI")  # MongoDB connection string
-DB_NAME = os.environ.get("DB_NAME", "placementreminderbot")  # default DB name
-RENDER_URL = os.environ.get("RENDER_URL")  # Your own bot URL to ping
+# Required environment variables
+BOT_TOKEN = os.environ.get("BOT_TOKEN")
+CHANNEL_ID = os.environ.get("CHANNEL_ID")
+SUPERADMIN_ID = int(os.environ.get("SUPERADMIN_ID", 0))
+MONGO_URI = os.environ.get("MONGO_URI")
+DB_NAME = os.environ.get("DB_NAME", "placementreminderbot")
+RENDER_URL = os.environ.get("RENDER_URL")
 
-if not BOT_TOKEN or not CHANNEL_ID or not SUPERADMIN_ID or not MONGO_URI or not RENDER_URL:
-    raise ValueError("❌ Missing required environment variables: BOT_TOKEN, CHANNEL_ID, SUPERADMIN_ID, MONGO_URI, RENDER_URL")
+# Ensure all required variables are set
+missing_vars = [var for var in ["BOT_TOKEN", "CHANNEL_ID", "SUPERADMIN_ID", "MONGO_URI", "RENDER_URL"] if not os.environ.get(var)]
+if missing_vars:
+    raise ValueError(f"❌ Missing required environment variables: {', '.join(missing_vars)}")
 
+print("✅ All environment variables loaded successfully!")
 # --- Setup ---
 logging.basicConfig(level=logging.INFO)
 client = MongoClient(MONGO_URI)
