@@ -1,17 +1,18 @@
 # Telegram bot
 python-telegram-bot==20.3
 
-# MongoDB driver
+# MongoDB
 pymongo==4.4.0
+dnspython==2.3.0
 
-# Scheduling jobs
-APScheduler==3.10.1
+# Scheduler
+apscheduler==3.10.1
 
-# HTTP client (compatible with Python 3.13)
-aiohttp>=4.0.0,<4.1.0
+# Async HTTP requests (for pinging Render URL)
+aiohttp==3.8.5
 
-# Timezone data
+# Timezone support
 tzdata==2025.1
 
-# Environment variables
+# Optional: if you use environment variable loading locally
 python-dotenv==1.0.0
